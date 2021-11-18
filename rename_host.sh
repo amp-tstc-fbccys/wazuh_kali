@@ -7,4 +7,4 @@ sed s/kali/$newhost/ /etc/hosts > tee /etc/hosts.cys
 cp /etc/hosts.cys /etc/hosts
 cp /etc/hostname /etc/hostname.bak
 sed s/kali/$newhost /etc/hostname > /etc/hostname.cys
-cp /etc/hostname/cys /etc/hostname
+cp /etc/hostname.cys /etc/hostname
