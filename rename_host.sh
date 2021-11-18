@@ -7,3 +7,4 @@ sed s/kali/$newhost/ /etc/hosts > /etc/hosts.cys
 cp /etc/hosts.cys /etc/hosts
 cp /etc/hostname /etc/hostname.bak
 echo $newhost > /etc/hostname
+echo "Reboot to apply the new hostname before provisioning Wazuh"
