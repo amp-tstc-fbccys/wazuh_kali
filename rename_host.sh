@@ -3,8 +3,8 @@ echo "Enter new hostname"
 read newhost
 echo $newhost
 cp /etc/hosts /etc/hosts.bak
-sed s/kali/$newhost/ /etc/hosts > tee /etc/hosts.cys
+sed s/kali/$newhost/ /etc/hosts > /etc/hosts.cys
 cp /etc/hosts.cys /etc/hosts
 cp /etc/hostname /etc/hostname.bak
-sed s/kali/$newhost /etc/hostname > /etc/hostname.cys
+echo $newhost > /etc/hostname
 cp /etc/hostname.cys /etc/hostname
