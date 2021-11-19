@@ -1,22 +1,25 @@
 #!/bin/bash
+echo "current hostname is"
+hostname
 echo "Enter new hostname"
-read newhost
-#echo $newhost
+read newhostname
+#echo $newhostname
 
 cp /etc/hosts /etc/hosts.bak
 cp /etc/hostname /etc/hostname.bak
-rm /etc/hosts.cys
+if [ -f /etc/hosts.cys ]
+then rm /etc/hosts.cys
+fi
 #egrep Kali*-? /etc/hosts
 #egrep Kali*-? /etc/hosts | wc -l
 if [ `egrep Kali*-? /etc/hosts | wc -l` -eq '1' ]
 then
-echo "new hostname format found. correcting"
-echo $newhost
-sed s/'Kali[[:alpha:]]*[[:digit:]]*-[[:digit:]]*'/$newhost/ /etc/hosts > /etc/hosts.cys
+echo "new hostname format found. update value to $newhostname"
+sed s/'Kali[[:alpha:]]*[[:digit:]]*-[[:digit:]]*'/$newhostname/ /etc/hosts > /etc/hosts.cys
 #cat /etc/hosts.cys
 else
-echo "old name found. replacing"
-sed s/kali/$newhost/ /etc/hosts > /etc/hosts.cys
+echo "old name found. replacing with $newhostname"
+sed s/kali/$newhostname/ /etc/hosts > /etc/hosts.cys
 fi
 if [ -f /etc/hosts.cys ]
 then
