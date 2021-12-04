@@ -27,5 +27,5 @@ cp /etc/hosts.cys /etc/hosts
 else
 echo "error: hosts file was not changed"
 fi
-echo $newhost > /etc/hostname
+echo $newhostname > /etc/hostname
 echo "Reboot to apply the new hostname before provisioning Wazuh"
